@@ -36,6 +36,9 @@ public class MyArrayListService extends ArrayList<String>{
     }
 
 
+    public void deleteElement(String string){
+        arrayList.remove(string);
+    }
 
     public void saveArrayListToXML(String xmlFilePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(xmlFilePath))) {
@@ -51,6 +54,14 @@ public class MyArrayListService extends ArrayList<String>{
     }
 
 
+    public void reverseAllStrings() {
+        for (int i = 0; i < arrayList.size(); i++) {
+            String original = arrayList.get(i);
+            String reversed = new StringBuilder(original).reverse().toString();
+            arrayList.set(i, reversed);
+        }
+        System.out.println("Strings are reversed");
+    }
 
     public Map<Character, Integer> getCharacterStatistics() {
         Map<Character, Integer> statistics = new HashMap<>();
@@ -66,7 +77,13 @@ public class MyArrayListService extends ArrayList<String>{
         return statistics;
     }
 
-
+    public void findSubstring(String substring) {
+        for (String str : arrayList) {
+            if (str.contains(substring)) {
+                System.out.println(str);
+            }
+        }
+    }
 
     public ArrayList<String> initializeListFromTextFile(String filePath) {
         ArrayList<String> temp = new ArrayList<>();
@@ -104,6 +121,13 @@ public class MyArrayListService extends ArrayList<String>{
         return sortedMap;
     }
 
+    public void printArrayList() {
+        System.out.println("\n");
+        for (String element : arrayList) {
+            System.out.println(element);
+        }
+        System.out.println("\n");
+    }
 
     public boolean compareInnerObjects(int firstIndex, int secondIndex) {
         if (firstIndex >= 0 && firstIndex < arrayList.size() && secondIndex >= 0 && secondIndex < arrayList.size()) {
