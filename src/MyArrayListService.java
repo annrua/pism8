@@ -53,7 +53,14 @@ public class MyArrayListService extends ArrayList<String>{
         }
     }
 
-
+    public void reverseAllStrings() {
+        for (int i = 0; i < arrayList.size(); i++) {
+            String original = arrayList.get(i);
+            String reversed = new StringBuilder(original).reverse().toString();
+            arrayList.set(i, reversed);
+        }
+        System.out.println("Strings are reversed");
+    }
 
     public Map<Character, Integer> getCharacterStatistics() {
         Map<Character, Integer> statistics = new HashMap<>();
